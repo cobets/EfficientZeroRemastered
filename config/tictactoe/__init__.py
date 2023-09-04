@@ -1,4 +1,5 @@
 import torch
+import gym
 
 from core.config import BaseConfig
 from core.utils import make_atari, WarpFrame, EpisodicLifeEnv
@@ -144,10 +145,10 @@ class TicTacToeConfig(BaseConfig):
             env = EpisodicLifeEnv(env)
         env = WarpFrame(env, width=self.obs_shape[1], height=self.obs_shape[2], grayscale=self.gray_scale)
         """
-        env = gym.make('tictactoe-v0')
+        env = gym.make('tictactoe_gym/tictactoe-v0')
 
         if seed is not None:
-            env.seed(seed)
+            env.reset(seed=seed)
 
         return TicTacToeWrapper(env, discount=self.discount, cvt_string=self.cvt_string)
 

@@ -31,7 +31,7 @@ class TicTacToeWrapper(Game):
         return observation, reward, done, info
 
     def reset(self, **kwargs):
-        observation = self.env.reset(**kwargs)
+        observation, _ = self.env.reset(**kwargs)
         observation = observation.astype(np.uint8)
 
         if self.cvt_string:
