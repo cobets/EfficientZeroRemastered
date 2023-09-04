@@ -7,3 +7,4 @@ tensorboard
 opencv-python
 kornia
 scipy
+tictactoe_gym
