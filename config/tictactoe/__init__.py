@@ -2,7 +2,6 @@ import torch
 import gym
 
 from core.config import BaseConfig
-from core.utils import make_atari, WarpFrame, EpisodicLifeEnv
 from core.dataset import Transforms
 from .env_wrapper import TicTacToeWrapper
 from .model import EfficientZeroNet
