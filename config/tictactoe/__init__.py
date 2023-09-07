@@ -1,5 +1,6 @@
 import torch
 import gym
+import tictactoe_gym
 
 from core.config import BaseConfig
 from core.dataset import Transforms
@@ -60,7 +61,9 @@ class TicTacToeConfig(BaseConfig):
             proj_hid=1024,
             proj_out=1024,
             pred_hid=512,
-            pred_out=1024,)
+            pred_out=1024,
+            gray_scale=True,
+        )
         self.discount **= self.frame_skip
         self.max_moves //= self.frame_skip
         self.test_max_moves //= self.frame_skip
@@ -97,7 +100,7 @@ class TicTacToeConfig(BaseConfig):
         # gray scale
         if self.gray_scale:
             self.image_channel = 1
-        obs_shape = (self.image_channel, 96, 96)
+        obs_shape = (self.image_channel, 3, 3)
         self.obs_shape = (obs_shape[0] * self.stacked_observations, obs_shape[1], obs_shape[2])
 
         game = self.new_game()
